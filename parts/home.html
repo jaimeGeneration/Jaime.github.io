@@ -1,0 +1,97 @@
+
+		  <div class="animated zoomInRight">
+		  <div class="banner">
+	 		<h1>Best Music Artists</h1>
+	 		<div class="input-group search-bar">
+				<input type="text" placeholder="search" ng-model="search" ng-model-options="{ debounce: 800 }"  class="form-control" autofocus />
+	 			<span class="input-group-addon bar-style">
+	 				<i class="glyphicon glyphicon-search"></i>
+	 			</span>
+	  		</div>
+	  		</div>
+	  		
+	  		<section id="intro">
+	  		<div class="container">
+			<div class="row">
+	  		<div>
+<img ng-src="{{details.artist.image[3]['#text']}}" class=" animated flip artist-poster">
+	  		<h2>{{details.artist.name}}</h2>
+			<p ng-text-truncate="bio" ng-tt-words-threshold="100"></p>
+	 		<div ng-if="bio == '' "> No tiene biografia actualmente</div>
+	 		</div>
+			
+			
+			<h2>Similar Artist</h2>
+				 <div ng-if="similar == '' ">No similar artist </div>
+				 <ul class="rel-results">
+					 <li ng-repeat="artist in similar">
+					 	<a href="#" id="{{$index + 1}}" ng-click="update(artist)">{{artist.name}}</a>
+					 </li>
+				  </ul>  
+			 </div>
+			 </div>
+			 </section>
+				</div>
+				 	<section  id="album">
+ 					<div class="container">
+				 	<div class="row">
+			     	<div class="col-xs-12">
+			 	  		<h2>Top Albums</h2>
+			       </div>
+			      </div>
+				
+				 <div class="row">
+				 	 <div class="flex-container">
+				  <div class="flex-item" ng-repeat="album in albums | limitTo: 10">
+<div class="view view-tenth">
+   <img class="card" ng-src="{{album.image[3]['#text']}}" height="200px" width="200px" alt="{{album.name}}">
+    <div class="mask">
+     <p class="album">{{album.name}}</p>
+        <a ng-href="https://www.amazon.es/s/ref=nb_sb_noss?url=search-alias%3Dpopular&field-keywords={{album.name}} {{album.artist.name}}" class=" btn btn-success" target="_blank">Buy It</a>
+    </div>
+  </div>
+</div>
+				</div>
+				</div>
+				</div>
+				</section>
+			
+			<section  id="tour">
+ 			<div class="container">	
+			<div class="row">
+			<div class="col-xs-8">
+			<h2>Tour Dates</h2>
+			<p  ng-repeat="x in dates">{{x.formatted_datetime}} | {{x.title}}
+			<a  ng-href="https://maps.google.com/maps?z=12&q={{x.venue.latitude}},{{x.venue.longitude}}&output=embed" class="glyphicon glyphicon-map-marker" target="iframe_a"></a></p>
+			<div ng-if="dates == false ">
+			       <h2 class="bad"> No hay fechas actualmente</h2>
+			</div>
+			</div>
+			<div ng-hide="dates == false" id="map" class="col-xs-4">
+				<iframe width="300px" height="300px" frameBorder="0" src="" name="iframe_a"></iframe>
+			</div>
+				</div>
+				</div>
+				</section>
+			<section class=" mostPlayed">
+				<div class="container">	
+			<div class="row">
+			<div class="songbox col-xs-12">
+				<h2>Recent songs played</h2>
+				
+						      
+				<ul id="songs" ng-repeat="set in tracks">
+				
+				<li ng-repeat="x in set.song">{{x['@name']}} 
+					<a ng-href="https://www.youtube.com/results?search_query={{details.artist.name}} {{x['@name']}}" class="glyphicon glyphicon-volume-up" target="-blank"></a>
+				</li>
+				
+				<li ng-repeat="x in track">{{x['@name']}}<a ng-href="https://www.youtube.com/results?search_query={{details.artist.name}} {{x['@name']}}" class="glyphicon glyphicon-volume-up" target="_blank"></a></li>
+				</ul>
+				<div ng-if="status === 'Not Found' || tracks == undefined || status === 'Request failed.'"><h2 class="bad">No recent songs</h2></div>
+					</div>
+					</div>
+				</div>
+				</section>
+		
+			

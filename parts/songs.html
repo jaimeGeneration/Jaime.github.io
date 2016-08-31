@@ -1,0 +1,20 @@
+<section id="songs" class=" mostPlayed">
+				<div class="container">	
+			<div class="row">
+			<div class="songbox col-xs-12">
+				<h2>Recent songs played</h2>
+				
+						      
+				<ul id="songs" ng-repeat="set in tracks">
+				
+				<li ng-repeat="x in set.song">{{x['@name']}} 
+					 <a ng-href="https://www.youtube.com/results?search_query={{details.artist.name}} {{x['@name']}}" class="glyphicon glyphicon-volume-up" target="-blank"></a>
+				</li>
+				
+				<li ng-repeat="x in track">{{x['@name']}} <a ng-href="https://www.youtube.com/results?search_query={{details.artist.name}} {{x['@name']}}" class="glyphicon glyphicon-volume-up" target="_blank"></a></li>
+				</ul>
+				<div ng-if="status === 'Not Found' || tracks == undefined || status === 'Request failed.'"><h2 class="bad">No recent songs</h2></div>
+					</div>
+					</div>
+				</div>
+				</section>

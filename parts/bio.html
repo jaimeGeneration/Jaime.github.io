@@ -1,0 +1,6 @@
+<div>
+<img ng-src="{{details.artist.image[3]['#text']}}" class=" animated flip artist-poster">
+	  		<h2>{{details.artist.name}}</h2>
+			<p ng-text-truncate="bio" ng-tt-words-threshold="100"></p>
+	 		<div ng-if="bio == '' "> No tiene biografia actualmente</div>
+	 		</div>

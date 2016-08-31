@@ -1,0 +1,10 @@
+Para que el sitio web me funcione correctamente necesito hacer dos cosas:
+
+1- Crear un servidor local.
+	- Descargo Python.
+	- Abro mi terminal CMD y escribo lo siguiente:
+		- cd ruta del proyecto
+		- python -m http.server 8000
+
+2- Tengo que agregar la extensión al navegador buscando en google "access control allow origin + nombre navegador",
+   para que pueda hacer mis peticiones a las APIs sin problemas.

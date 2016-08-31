@@ -1,0 +1,7 @@
+<h2>Similar Artist</h2>
+				 <div ng-if="similar == '' ">No similar artist </div>
+				 <ul class="rel-results">
+					 <li ng-repeat="artist in similar">
+					 	<a href="#" id="{{$index + 1}}" ng-click="update(artist)">{{artist.name}}</a>
+					 </li>
+				  </ul>   

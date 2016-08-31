@@ -1,0 +1,17 @@
+<section  id="tour">
+ 			<div class="container">	
+			<div class="row">
+			<div class="col-xs-8">
+			<h2>Tour Dates</h2>
+			<p  ng-repeat="x in dates">{{x.formatted_datetime}} | {{x.title}}
+			<a  ng-href="https://maps.google.com/maps?z=12&q={{x.venue.latitude}},{{x.venue.longitude}}&output=embed" class="glyphicon glyphicon-map-marker" target="iframe_a"></a></p>
+			<div ng-if="dates == false ">
+			       <h2 class="bad"> No hay fechas actualmente</h2>
+			</div>
+			</div>
+			<div ng-hide="dates == false" id="map" class="col-xs-4">
+				<iframe width="300px" height="300px" frameBorder="0" src="" name="iframe_a"></iframe>
+			</div>
+				</div>
+				</div>
+				</section>
